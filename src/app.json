@@ -1,13 +1,13 @@
 {
   "pages": [
+    "pages/me/main",
     "pages/books/main",
-    "pages/comments/main",
-    "pages/me/main"
+    "pages/comments/main"
   ],
   "window": {
     "backgroundTextStyle": "light",
     "navigationBarBackgroundColor": "#EA5149",
-    "navigationBarTitleText": "俄货图书",
+    "navigationBarTitleText": "河马图书",
     "navigationBarTextStyle": "light"
   },
   "tabBar": {
