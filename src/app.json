@@ -1,11 +1,37 @@
 {
   "pages": [
-    "pages/books/main"
+    "pages/books/main",
+    "pages/comments/main",
+    "pages/me/main"
   ],
   "window": {
     "backgroundTextStyle": "light",
-    "navigationBarBackgroundColor": "#fff",
-    "navigationBarTitleText": "WeChat",
-    "navigationBarTextStyle": "black"
+    "navigationBarBackgroundColor": "#EA5149",
+    "navigationBarTitleText": "俄货图书",
+    "navigationBarTextStyle": "light"
+  },
+  "tabBar": {
+    "selectedColor":"#EA5149",
+    "list": [
+      {
+        "pagePath": "pages/books/main",
+        "text": "首页",
+        "iconPath": "./static/img/task.png",
+        "selectedIconPath": "./static/img/task_fill.png"
+      },
+      {
+        "pagePath": "pages/comments/main",
+        "text": "日志",
+        "iconPath": "./static/img/workbench.png",
+        "selectedIconPath": "./static/img/workbench_fill.png"
+      },
+      {
+        "pagePath": "pages/me/main",
+        "text": "我",
+        "iconPath": "./static/img/mine.png",
+        "selectedIconPath": "./static/img/mine_fill.png"
+      }
+    ]
   }
+
 }

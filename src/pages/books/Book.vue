@@ -1,6 +1,6 @@
 <template>
   <div>
-    personal book  
+    Great book
   </div>
 </template>
 
