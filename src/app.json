@@ -21,7 +21,7 @@
       },
       {
         "pagePath": "pages/comments/main",
-        "text": "日志",
+        "text": "评论",
         "iconPath": "./static/img/workbench.png",
         "selectedIconPath": "./static/img/workbench_fill.png"
       },
