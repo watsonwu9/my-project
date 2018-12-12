@@ -37,7 +37,7 @@ export default {
   font-size: 16px;
   line-height: 40px;
   height: 40px;
-  width: 100%;
+  width: 60%;
 }
 .btn:active{
   background: #FA5A49;

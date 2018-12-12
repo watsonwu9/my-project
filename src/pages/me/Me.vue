@@ -1,12 +1,12 @@
 <template>
   <div class='container'>
-    <button v-if="!user" open-type="getUserInfo" lang="zh_CN" @getuserinfo="doLogin">获取用户信息</button>
-    <div class='userInfo'>
+    <div class='userinfo'>
       <img :src="userinfo.avatarUrl" alt="">
       <p>{{userinfo.nickName}}</p>
     </div>
     <YearProgress></YearProgress>
-    <button @click="scanBook" class="btn">添加图书</button>
+    <button v-if='userinfo.openId' @click="scanBook" class="btn">添加图书</button>
+    <button v-else open-type="getUserInfo" lang="zh_CN" class='btn' @getuserinfo="doLogin">点击登录</button>
   </div>
 </template>
 
@@ -15,8 +15,13 @@
 import qcloud from 'wafer2-client-sdk'
 import config from '@/config'
 import { showSuccess } from '@/util.js'
+import YearProgress from '@/components/YearProgress'
 
 export default {
+  components:{
+    YearProgress
+  },
+
   data () {
     return {
       userinfo: {
@@ -31,6 +36,7 @@ export default {
       wx.setStorageSync('userinfo', res)
       this.userinfo = res
     },
+
     doLogin () {
       wx.showToast({
         title: '登录中',
@@ -73,7 +79,14 @@ export default {
     }
   },
   created () {
-    // this.userInfo = wx.getStorageSync('userInfo')
+    //this.userInfo = wx.getStorageSync('userinfo')
+  },
+  onShow(){
+    let userinfo = wx.getStorageSync('userinfo')
+    if(userinfo){
+      this.userinfo = userinfo
+
+    }
   }
 
 }
@@ -81,16 +94,16 @@ export default {
 
 
 <style lang='scss'>
-.container { 
-  padding: 0 30 rpx;
-}
+.container{
+  padding:10 30rpx;
 
+}  
 .userinfo{
   margin-top:100rpx;
   text-align:center;
   img{
-    width: 150rpx;
-    height:150rpx;
+    width: 200rpx;
+    height:200rpx;
     margin: 20rpx;
     border-radius: 50%;
   }
