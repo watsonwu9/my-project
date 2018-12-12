@@ -14,19 +14,20 @@
 <script>
 import qcloud from 'wafer2-client-sdk'
 import config from '@/config'
-import { showSuccess } from '@/util.js'
+import { showSuccess, post } from '@/util.js'
 import YearProgress from '@/components/YearProgress'
+import { fail } from 'assert'
 
 export default {
-  components:{
+  components: {
     YearProgress
   },
 
   data () {
     return {
       userinfo: {
-        avatarUrl:"http://image.shengxinjing.cn/rate/unlogin.png",
-        nickName:""
+        avatarUrl: 'http://image.shengxinjing.cn/rate/unlogin.png',
+        nickName: ''
       }
     }
   },
@@ -34,7 +35,10 @@ export default {
     loginSuccess (res) {
       showSuccess('登录成功')
       wx.setStorageSync('userinfo', res)
+      //console.log(this.userinfo)
+      ///console.log("zhong")
       this.userinfo = res
+      //console.log(this.userinfo)
     },
 
     doLogin () {
@@ -67,25 +71,38 @@ export default {
       }
     },
 
-    
+    async addBook (isbn) {
+      console.log('在前端准备添加以下同学的书')
+      console.log(this.userinfo.openId)
+      const res = await post('/weapp/addbook', {
+        isbn,
+        openId: this.userinfo.openId
+      })
+      if (res.errMsg === 'scanCode:ok') {
+        showSuccess('添加成功', `${res.data.title}添加成功`)
+      }
+    },
 
     scanBook () {
       console.log('you just click the button')
       wx.scanCode({
         success: (res) => {
           console.log(res)
+          this.addBook(res.result)
+        },
+        fail: () => {
+          console.log('the scan failed')
         }
       })
     }
   },
   created () {
-    //this.userInfo = wx.getStorageSync('userinfo')
+    // this.userInfo = wx.getStorageSync('userinfo')
   },
-  onShow(){
+  onShow () {
     let userinfo = wx.getStorageSync('userinfo')
-    if(userinfo){
+    if (userinfo) {
       this.userinfo = userinfo
-
     }
   }
 
