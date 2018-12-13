@@ -8,6 +8,14 @@ export function get (url, data) {
 export function post (url, data) {
   return request(url, 'POST', data)
 }
+
+export function showModal(title,content){
+  wx.showModal({
+    title,
+    content,
+    showCancel:false
+  })
+}
 export function showSuccess (text) {
   wx.showToast({
     title: text,
@@ -25,6 +33,7 @@ function request (url, method, data) {
         if (res.data.code === 0) {
           resolve(res.data.data)
         } else {
+          showModal('失败',res.data.data.msg)
           reject(res.data)
         }
       }

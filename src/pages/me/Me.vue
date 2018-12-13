@@ -17,6 +17,7 @@ import config from '@/config'
 import { showSuccess, post } from '@/util.js'
 import YearProgress from '@/components/YearProgress'
 import { fail } from 'assert'
+import { showModal } from '../../util';
 
 export default {
   components: {
@@ -78,9 +79,10 @@ export default {
         isbn,
         openId: this.userinfo.openId
       })
-      if (res.errMsg === 'scanCode:ok') {
-        showSuccess('添加成功', `${res.data.title}添加成功`)
-      }
+      showModal('添加成功', `${res.data.title}添加成功`)
+      // if (res.errMsg === 'scanCode:ok') {
+      //   showSuccess('添加成功', `${res.data.title}添加成功`)
+      // }
     },
 
     scanBook () {
