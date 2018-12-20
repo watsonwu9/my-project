@@ -27,6 +27,11 @@ export default {
   box-sizing: border-box;
 }
 
+.text-primary {
+  color: #EA5149;
+  
+}
+
 .btn{
   color: white;
   background: #EA5A49;

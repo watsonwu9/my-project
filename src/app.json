@@ -1,14 +1,15 @@
 {
   "pages": [
-    "pages/me/main",
     "pages/books/main",
+    "pages/me/main",
     "pages/comments/main"
   ],
   "window": {
     "backgroundTextStyle": "light",
     "navigationBarBackgroundColor": "#EA5149",
     "navigationBarTitleText": "闪宝图书",
-    "navigationBarTextStyle": "light"
+    "navigationBarTextStyle": "light",
+    "enablePullDownRefresh":true
   },
   "tabBar": {
     "selectedColor":"#EA5149",
