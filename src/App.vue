@@ -26,7 +26,11 @@ export default {
   padding: 200rpx 0;
   box-sizing: border-box;
 }
-
+.text-footer{
+  text-align: center;
+  font-size: 15px;
+  margin-bottom: 15px;
+}
 .text-primary {
   color: #EA5149;
   

@@ -3,7 +3,7 @@
 import config from './config'
 
 export function get (url, data) {
-  return request(url, 'GET')
+  return request(url, 'GET',data)
 }
 export function post (url, data) {
   return request(url, 'POST', data)

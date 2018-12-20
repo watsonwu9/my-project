@@ -1,4 +1,3 @@
-//http://feedback.api.juhe.cn/ISBN?sub=9787536692930&key=8384a9409bc1f7e0d64d30af88b9558c
 const http = require('http')
 const {mysql} = require('../qcloud')
 

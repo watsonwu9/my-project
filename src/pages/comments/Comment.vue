@@ -7,7 +7,11 @@
 
 <script>
 export default {
+mounted() {
+    console.log("you are now @ comment")
+  },
 
+  
 }
 </script>
 
