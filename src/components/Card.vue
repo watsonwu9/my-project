@@ -1,7 +1,7 @@
 <template>
 <a :href="detailUrl">
     <div class="book-card">
-        <div class='thumb'>
+        <div class='thumb' @click.stop = "preview">
             <img :src='book.images_medium' mode='aspectFit' class="img">
         </div>
 
@@ -28,7 +28,7 @@
 
             <div class='row'>
                 <div class='right'>
-                    浏览量
+                    {{book.count}}
                 </div>
                 <div class='left'>
                     {{book.publisher}}
@@ -48,6 +48,14 @@ export default {
             return '/pages/detail/main?id='+this.book.id
         }
     },
+    methods:{
+        preview(){
+            wx.previewImage({
+                current:this.book.images_large,
+                urls:[this.book.images_large]//轮播图列表
+            })
+        }
+    }
 }
     
 </script>
